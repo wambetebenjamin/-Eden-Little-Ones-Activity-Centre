@@ -6,6 +6,7 @@ import { activities, getActivityBySlug } from "@/lib/data/activities";
 import { testimonials } from "@/lib/data/testimonials";
 import ActivityIcon from "@/components/ActivityIcon";
 import BookActivityButton from "@/components/BookActivityButton";
+import { Reveal } from "@/components/MotionReveal";
 
 export const revalidate = 300;
 
@@ -62,8 +63,9 @@ export default function ActivityDetailPage({ params }: { params: { slug: string 
   };
 
   return (
-    <article>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    <Reveal>
+      <article>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }} />
 
       <div className="relative h-[42vh] min-h-[320px] w-full">
@@ -160,7 +162,8 @@ export default function ActivityDetailPage({ params }: { params: { slug: string 
           </ul>
           <BookActivityButton activitySlug={activity.slug} />
         </aside>
-      </div>
-    </article>
+        </div>
+      </article>
+    </Reveal>
   );
 }

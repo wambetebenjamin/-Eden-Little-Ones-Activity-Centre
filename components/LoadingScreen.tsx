@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 //   - three coloured dots below pulse in sequence
 //   - a progress bar fills below the dots
 //   - page fades in on completion, under 2 seconds total
-//   - bouncy animation only here, never on the main site
+//   - bouncy animation stays subtle and respects the user's motion preference
 const TOTAL_MS = 1400;
 
 export default function LoadingScreen() {

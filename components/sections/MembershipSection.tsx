@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { membershipTiers } from "@/lib/data/membership";
 import MembershipForm from "@/components/forms/MembershipForm";
+import { Reveal } from "@/components/MotionReveal";
 
 export default function MembershipSection() {
   const [selectedTier, setSelectedTier] = useState(membershipTiers[0].slug);
@@ -12,14 +13,14 @@ export default function MembershipSection() {
   return (
     <section id="membership" className="bg-light py-20">
       <div className="container-eden">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <span className="eyebrow mb-4">Membership</span>
           <h2 className="mb-4 text-3xl sm:text-4xl">Join the Eden Membership Programme</h2>
           <p className="text-body text-ink">
             Regular activity credits, birthday discounts and priority booking for
             your family.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mb-14 grid grid-cols-1 gap-6 md:grid-cols-3">
           {membershipTiers.map((tier, i) => (

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ageGroups, getActivitiesByAgeGroup, AgeGroup } from "@/lib/data/activities";
 import ActivityCard from "@/components/sections/ActivityCard";
+import { Reveal } from "@/components/MotionReveal";
 
 export default function ActivitiesSection({
   activeGroup,
@@ -16,14 +17,14 @@ export default function ActivitiesSection({
   return (
     <section id="activities" className="bg-light py-20">
       <div className="container-eden">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <span className="eyebrow mb-4">Our Activities</span>
           <h2 className="mb-4 text-3xl sm:text-4xl">Hands-On Activities for Every Age</h2>
           <p className="text-body text-ink">
             Arts, science, music, movement, coding and more — tabbed by age group so
             you can find the right fit for your child.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mb-10 flex gap-3 overflow-x-auto pb-2 sm:justify-center">
           {ageGroups.map((group) => (
