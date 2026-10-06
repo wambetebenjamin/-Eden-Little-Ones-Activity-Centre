@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, Camera } from "lucide-react";
 import { galleryImages, GalleryImage } from "@/lib/data/gallery";
+import { Reveal } from "@/components/MotionReveal";
 
 const FILTERS: (GalleryImage["category"] | "All")[] = ["All", "Arts", "Science", "Outdoor", "Parties"];
 
@@ -17,10 +18,10 @@ export default function GallerySection() {
   return (
     <section id="gallery" className="bg-light py-20">
       <div className="container-eden">
-        <div className="mx-auto mb-10 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-10 max-w-2xl text-center">
           <span className="eyebrow mb-4"><Camera size={14} className="mr-1 inline" /> Gallery</span>
           <h2 className="mb-4 text-3xl sm:text-4xl">Moments from Eden Little Ones</h2>
-        </div>
+        </Reveal>
 
         <div className="mb-10 flex flex-wrap justify-center gap-3">
           {FILTERS.map((f) => (

@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Facebook, Instagram, MapPin, Mail, Phone, MessageCircle } from "lucide-react";
 import NewsletterForm from "@/components/forms/NewsletterForm";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { Reveal } from "@/components/MotionReveal";
 
 export default function Footer() {
   return (
     <footer className="bg-dark text-white">
-      <div className="container-eden grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
+      <Reveal className="container-eden grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="mb-3 font-display text-xl text-white">
             Eden <span className="text-primary">Little Ones</span>
@@ -63,7 +64,7 @@ export default function Footer() {
             <li className="flex gap-2"><Mail size={18} className="shrink-0 text-primary" /> hello@edenlittleones.co.ke</li>
           </ul>
         </div>
-      </div>
+      </Reveal>
 
       <div className="border-t border-white/10 py-6">
         <div className="container-eden flex flex-col items-center justify-between gap-2 text-meta text-white/60 md:flex-row">

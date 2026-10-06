@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Users, CheckCircle, Calendar } from "lucide-react";
 import SchoolBookingForm from "@/components/forms/SchoolBookingForm";
+import { Reveal } from "@/components/MotionReveal";
 
 export const metadata: Metadata = {
   title: "School & Group Bookings",
@@ -18,15 +19,15 @@ const curriculumActivities = [
 export default function SchoolsPage() {
   return (
     <div>
-      <div className="hero-header relative bg-dark py-20 text-white">
-        <div className="container-eden text-center">
+      <div className="hero-header relative overflow-hidden bg-dark py-20 text-white">
+        <Reveal className="container-eden text-center">
           <span className="eyebrow mb-4 border-white text-white"><Users size={14} className="mr-1 inline" /> For Schools</span>
           <h1 className="mb-4 text-3xl text-white sm:text-5xl">School Visit Programme</h1>
           <p className="mx-auto max-w-2xl text-body text-white/85">
             A full day of curriculum-aligned, hands-on learning for your pupils — safely
             hosted at our Lavington centre.
           </p>
-        </div>
+        </Reveal>
       </div>
 
       <section className="container-eden py-16">

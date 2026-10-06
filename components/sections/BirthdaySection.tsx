@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, Users, Clock, Cake } from "lucide-react";
 import { birthdayPackages, partyAddOns } from "@/lib/data/packages";
 import BirthdayForm from "@/components/forms/BirthdayForm";
+import { Reveal } from "@/components/MotionReveal";
 
 export default function BirthdaySection() {
   const [selectedPackage, setSelectedPackage] = useState(birthdayPackages[0].slug);
@@ -18,14 +19,14 @@ export default function BirthdaySection() {
   return (
     <section id="birthday" className="bg-cream py-20">
       <div className="container-eden">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <span className="eyebrow mb-4">Birthday Parties</span>
           <h2 className="mb-4 text-3xl sm:text-4xl">Unforgettable Birthdays at Eden</h2>
           <p className="text-body text-ink">
             Three packages designed to make your child&apos;s birthday stress-free and
             full of play.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mb-14 grid grid-cols-1 gap-6 md:grid-cols-3">
           {birthdayPackages.map((pkg, i) => (

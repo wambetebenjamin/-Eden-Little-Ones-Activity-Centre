@@ -1,6 +1,7 @@
 import { MapPin, Phone, MessageCircle, Clock } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { Reveal } from "@/components/MotionReveal";
 
 const HOURS = [
   ["Monday – Friday", "8:00am – 6:00pm"],
@@ -12,10 +13,10 @@ export default function ContactSection() {
   return (
     <section id="contact" className="bg-light py-20">
       <div className="container-eden">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <span className="eyebrow mb-4">Contact Us</span>
           <h2 className="mb-4 text-3xl sm:text-4xl">Visit Us in Lavington</h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <div className="space-y-6">

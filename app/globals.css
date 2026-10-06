@@ -26,8 +26,12 @@
   /* Shadow (from .service-item) */
   --shadow-eden: 0 0 45px rgba(57, 61, 114, 0.12);
 
-  /* Motion easing (brief: hero word bounce) */
+  /* Motion easing for the playful but polished interaction system */
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 180ms;
+  --motion-base: 350ms;
+  --motion-slow: 650ms;
 
   --header-height: 92px;
 
@@ -46,6 +50,42 @@ body {
   font-family: var(--font-montserrat), sans-serif;
   font-size: 15px;
   line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Keep focus and hover feedback consistent across links, buttons and cards. */
+a,
+button,
+input,
+select,
+textarea {
+  transition-timing-function: var(--ease-smooth);
+  transition-property: border-color, box-shadow, background-color;
+  transition-duration: var(--motion-base);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 4px rgba(255, 72, 128, 0.12);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+a:not([class]) {
+  transition: color var(--motion-fast) ease;
+}
+
+button:enabled,
+a[href] {
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -91,13 +131,22 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: var(--radius-pill);
-  transition: 0.35s;
+  transition: transform var(--motion-base) var(--ease-smooth), box-shadow var(--motion-base) ease, background-color var(--motion-base) ease, color var(--motion-base) ease, border-color var(--motion-base) ease;
   min-height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0 1.75rem;
+}
+
+.btn-eden:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(57, 61, 114, 0.16);
+}
+
+.btn-eden:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 .btn-eden-primary {
@@ -127,6 +176,31 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-base);
   box-shadow: var(--shadow-eden);
   background: #fff;
+  transition: transform var(--motion-slow) var(--ease-smooth), box-shadow var(--motion-slow) var(--ease-smooth), border-color var(--motion-base) ease;
+}
+
+.card-eden:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(57, 61, 114, 0.16);
+}
+
+/* Atmospheric motion used by small decorative elements, never essential copy. */
+@keyframes eden-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(0, -10px, 0) rotate(2deg); }
+}
+
+@keyframes eden-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-eden-float {
+  animation: eden-float 5s ease-in-out infinite;
+}
+
+.animate-eden-pulse {
+  animation: eden-pulse 3.5s ease-in-out infinite;
 }
 
 /* reduced motion: instant fades only, no bounce / stagger / calendar fade */
@@ -136,6 +210,11 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .card-eden:hover,
+  .btn-eden:hover {
+    transform: none;
   }
 }
 

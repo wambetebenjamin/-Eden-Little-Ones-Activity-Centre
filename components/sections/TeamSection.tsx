@@ -3,18 +3,19 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { team } from "@/lib/data/team";
+import { Reveal } from "@/components/MotionReveal";
 
 export default function TeamSection() {
   return (
     <section className="bg-cream py-20">
       <div className="container-eden">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <span className="eyebrow mb-4">Our Team</span>
           <h2 className="mb-4 text-3xl sm:text-4xl">Meet the Facilitators</h2>
           <p className="text-body text-ink">
             Qualified, vetted and genuinely passionate about children&apos;s development.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member, i) => (

@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PageTransition from "@/components/MotionReveal";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.edenlittleones.co.ke"),
@@ -72,7 +73,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <LoadingScreen />
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <CookieConsentBanner />
         <WhatsAppButton />

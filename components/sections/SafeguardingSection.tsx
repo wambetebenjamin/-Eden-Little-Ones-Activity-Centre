@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Shield, UserCheck, HeartPulse, Download } from "lucide-react";
+import { Reveal } from "@/components/MotionReveal";
 
 const points = [
   {
@@ -25,12 +26,12 @@ export default function SafeguardingSection() {
   return (
     <section className="bg-dark py-20 text-white">
       <div className="container-eden">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <span className="eyebrow mb-4 border-white text-white">Safety First</span>
           <h2 className="mb-4 text-3xl text-white sm:text-4xl">
             Your Child&apos;s Safety Is Our First Priority
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {points.map((p, i) => (

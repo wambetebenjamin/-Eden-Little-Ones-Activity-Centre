@@ -9,6 +9,7 @@ import { FormStatus, TextField } from "@/components/forms/fields";
 import { useRecaptchaV3 } from "@/lib/useRecaptchaV3";
 import { bookingSchema } from "@/lib/schemas";
 import { GeneratedSession } from "@/lib/data/sessions";
+import { Reveal } from "@/components/MotionReveal";
 
 interface SessionWithAvailability extends GeneratedSession {
   spotsLeft: number;
@@ -75,8 +76,9 @@ export default function BookingPageClient({
   }
 
   return (
-    <div className="container-eden py-14">
-      <div className="mx-auto mb-10 max-w-2xl text-center">
+    <Reveal>
+      <div className="container-eden py-14">
+        <div className="mx-auto mb-10 max-w-2xl text-center">
         <span className="eyebrow mb-4">Book an Activity</span>
         <h1 className="mb-4 text-3xl sm:text-4xl">Choose a Session</h1>
         <p className="text-body text-ink">
@@ -162,7 +164,8 @@ export default function BookingPageClient({
             {depositNote && <p className="text-meta text-ink">{depositNote}</p>}
           </form>
         </div>
+        </div>
       </div>
-    </div>
+    </Reveal>
   );
 }
