@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================================
+   Design tokens — extracted from BabyCare-1.0.0/scss/bootstrap.scss and
+   css/style.css (see SOURCE_AUDIT.md section 3). Applied at :root exactly
+   as found, renamed to Eden Little Ones semantics.
+   ======================================================================== */
+:root {
+  /* Core palette (from $primary/$secondary/$light/$dark in the source scss) */
+  --color-primary: #ff4880;
+  --color-primary-dark: #e23b6d;
+  --color-secondary: #4d65f9;
+  --color-light: #ffecf2;
+  --color-dark: #393d72;
+  --color-body: #70747f;
+  --color-cream: #fffaf6;
+
+  /* Radii (from style.css organic shape utilities) */
+  --radius-base: 10px;
+  --radius-blob: 50% 20% / 10% 40%;
+  --radius-pill: 25% 10%;
+  --radius-chip: 10% 30%;
+
+  /* Shadow (from .service-item) */
+  --shadow-eden: 0 0 45px rgba(57, 61, 114, 0.12);
+
+  /* Motion easing (brief: hero word bounce) */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --header-height: 92px;
+
+  /* Fonts — self-hosted via @fontsource, same families as the design source */
+  --font-fredoka: "Fredoka", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-body);
+  background-color: var(--color-cream);
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fredoka), sans-serif;
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.container-eden {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .container-eden {
+    padding-inline: 2.5rem;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-fredoka), sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  border-radius: var(--radius-chip);
+  padding: 0.35rem 0.75rem;
+}
+
+.btn-eden {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  transition: 0.35s;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.75rem;
+}
+
+.btn-eden-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-eden-primary:hover {
+  background: var(--color-secondary);
+}
+
+.btn-eden-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn-eden-outline:hover {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+.blob-frame {
+  border-radius: var(--radius-blob);
+  overflow: hidden;
+}
+
+.card-eden {
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-eden);
+  background: #fff;
+}
+
+/* reduced motion: instant fades only, no bounce / stagger / calendar fade */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lightbox / modal scroll lock */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Masonry gallery columns */
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+}
+@media (min-width: 640px) {
+  .masonry { column-count: 2; }
+}
+@media (min-width: 1024px) {
+  .masonry { column-count: 3; }
+}
+@media (min-width: 1440px) {
+  .masonry { column-count: 4; }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+table.schedule-table th,
+table.schedule-table td {
+  border: 1px solid var(--color-light);
+  padding: 0.6rem 0.9rem;
+  font-size: 15px;
+}
